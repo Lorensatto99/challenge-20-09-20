@@ -6,6 +6,10 @@ CREATE TABLE t_rbw_audio_video (
 
 ALTER TABLE t_rbw_audio_video ADD CONSTRAINT t_rbw_video_pk PRIMARY KEY ( cd_audio_video );
 
+CREATE SEQUENCE SQ_RBW_AUDIO_VIDEO
+START WITH 1 
+INCREMENT BY 1;
+
 CREATE TABLE t_rbw_candidato (
     cd_candidato    NUMBER(11) NOT NULL,
     nr_cpf          VARCHAR2(11) NOT NULL,
@@ -20,27 +24,31 @@ CREATE TABLE t_rbw_candidato (
     nm_senha        VARCHAR2(16) NOT NULL
 );
 
-CREATE UNIQUE INDEX t_rbw_cand__idx ON
-    t_rbw_candidato (
-        nr_vaga
-    ASC );
+--CREATE UNIQUE INDEX t_rbw_cand__idx ON
+--    t_rbw_candidato (
+--        nr_vaga
+--    ASC );
+--
+--CREATE UNIQUE INDEX t_rbw_cand__idxv0 ON
+--    t_rbw_candidato (
+--        cd_audio_video
+--    ASC );
+--
+--CREATE UNIQUE INDEX t_rbw_cand__idxv1 ON
+--    t_rbw_candidato (
+--        cd_chatbot
+--    ASC );
 
-CREATE UNIQUE INDEX t_rbw_cand__idx ON
-    t_rbw_candidato (
-        cd_audio_video
-    ASC );
-
-CREATE UNIQUE INDEX t_rbw_cand__idxv1 ON
-    t_rbw_candidato (
-        cd_chatbot
-    ASC );
-
-ALTER TABLE t_rbw_candidato ADD constraint ck_candidato_medalha CHECK ( nr_medalha >= 0 AND <= 2 );
+ALTER TABLE t_rbw_candidato ADD constraint ck_candidato_medalha CHECK ( nr_medalha >= 0 AND nr_medalha <= 2 );
 ALTER TABLE t_rbw_candidato ADD CONSTRAINT t_rbw_cand_pk PRIMARY KEY ( cd_candidato );
 
 ALTER TABLE t_rbw_candidato ADD CONSTRAINT un_cand_cpf UNIQUE ( nr_cpf );
 
 ALTER TABLE t_rbw_candidato ADD CONSTRAINT un_cand_email UNIQUE ( ds_email );
+
+CREATE SEQUENCE SQ_RBW_CANDIDATO
+START WITH 1 
+INCREMENT BY 1;
 
 CREATE TABLE t_rbw_chatbot (
     cd_chatbot   NUMBER(5) NOT NULL,
@@ -48,6 +56,10 @@ CREATE TABLE t_rbw_chatbot (
 );
 
 ALTER TABLE t_rbw_chatbot ADD CONSTRAINT t_rbw_chatbot_pk PRIMARY KEY ( cd_chatbot );
+
+CREATE SEQUENCE SQ_RBW_CHATBOT
+START WITH 1 
+INCREMENT BY 1;
 
 CREATE TABLE t_rbw_recrutador (
     cd_recrutador  NUMBER(11) NOT NULL,
@@ -59,6 +71,10 @@ CREATE TABLE t_rbw_recrutador (
 ALTER TABLE t_rbw_recrutador ADD CONSTRAINT t_brw_recrut_pk PRIMARY KEY ( cd_recrutador );
 
 ALTER TABLE t_rbw_recrutador ADD CONSTRAINT un_recrutador_email UNIQUE ( ds_email );
+
+CREATE SEQUENCE SQ_RBW_RECRUTADOR
+START WITH 1 
+INCREMENT BY 1;
 
 CREATE TABLE t_rbw_vaga (
     nr_vaga     NUMBER(4) NOT NULL,
@@ -84,6 +100,10 @@ ALTER TABLE t_rbw_candidato
 ALTER TABLE t_rbw_candidato
     ADD CONSTRAINT t_rbw_vaga_cand FOREIGN KEY ( nr_vaga )
         REFERENCES t_rbw_vaga ( nr_vaga );
+
+CREATE SEQUENCE SQ_RBW_VAGA
+START WITH 1 
+INCREMENT BY 1;
 
 --DML
 
@@ -127,8 +147,29 @@ VALUES (SQ_RBW_CANDIDATO.NEXTVAL,'96583156840',1,NULL,NULL,1,TO_DATE('1969-08-14
 
 INSERT INTO
 T_RBW_CANDIDATO (CD_CANDIDATO,NR_CPF,NR_VAGA,CD_AUDIO_VIDEO,CD_CHATBOT,CD_RECRUTADOR,DT_NASCIMENTO,NR_MEDALHA,NM_CANDIDATO,DS_EMAIL,NM_SENHA)
-VALUES (SQ_RBW_CANDIDATO.NEXTVAL,'07532616851',1,NULL,NULL,2,TO_DATE('1966-09-01','YYYY-MM-DD'),0,'Celso','lorensattocls@gmail.com','55123');	
+VALUES (SQ_RBW_CANDIDATO.NEXTVAL,'07532616851',1,NULL,NULL,1,TO_DATE('1966-09-01','YYYY-MM-DD'),0,'Celso','lorensattocls@gmail.com','55123');
+
+INSERT INTO
+T_RBW_CANDIDATO (CD_CANDIDATO,NR_CPF,NR_VAGA,CD_AUDIO_VIDEO,CD_CHATBOT,CD_RECRUTADOR,DT_NASCIMENTO,NR_MEDALHA,NM_CANDIDATO,DS_EMAIL,NM_SENHA)
+VALUES (SQ_RBW_CANDIDATO.NEXTVAL,'07532616851',3,NULL,NULL,2,TO_DATE('1966-09-01','YYYY-MM-DD'),0,'Celso','lorensattocls@gmail.com','55123');	
 
 INSERT INTO
 T_RBW_CANDIDATO (CD_CANDIDATO,NR_CPF,NR_VAGA,CD_AUDIO_VIDEO,CD_CHATBOT,CD_RECRUTADOR,DT_NASCIMENTO,NR_MEDALHA,NM_CANDIDATO,DS_EMAIL,NM_SENHA)
 VALUES (SQ_RBW_CANDIDATO.NEXTVAL,'12345678912',2,NULL,NULL,2,TO_DATE('1996-01-24','YYYY-MM-DD'),1,'Camila','clorensatto.@gmail.com','111222');
+
+DROP TABLE T_RBW_AUDIO_VIDEO;
+DROP TABLE T_RBW_CANDIDATO;
+DROP TABLE T_RBW_CHATBOT;
+DROP TABLE T_RBW_RECRUTADOR;
+DROP TABLE T_RBW_VAGA;
+DROP SEQUENCE SQ_RBW_VAGA;
+DROP SEQUENCE SQ_RBW_RECRUTADOR;
+DROP SEQUENCE SQ_RBW_CANDIDATO;
+DROP SEQUENCE SQ_RBW_AUDIO_VIDEO;
+DROP SEQUENCE SQ_RBW_CHATBOT;
+DROP INDEX T_RBW_CAND_IDX;
+DROP INDEX T_RBW_CAND_IDXV1;
+DROP INDEX T_RBW_CAND_PK;
+DROP INDEX T_RBW_VIDEO_PK;
+
+DELETE FROM T_RBW_CANDIDATO WHERE CD_CANDIDATO IN (3);
