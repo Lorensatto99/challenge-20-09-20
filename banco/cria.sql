@@ -23,13 +23,13 @@ CREATE TABLE t_rbw_candidato (
     ds_email        VARCHAR2(100) NOT NULL,
     nm_senha        VARCHAR2(16) NOT NULL
 );
+--Duas Pessoas não pode concorrer a mesma vaga ?
+--CREATE UNIQUE INDEX t_rbw_cand__idx ON
+--    t_rbw_candidato (
+--        nr_vaga
+--    ASC );
 
-CREATE UNIQUE INDEX t_rbw_cand__idx ON
-    t_rbw_candidato (
-        nr_vaga
-    ASC );
-
-CREATE UNIQUE INDEX t_rbw_cand__idx ON
+CREATE UNIQUE INDEX t_rbw_cand__idxv0 ON
     t_rbw_candidato (
         cd_audio_video
     ASC );
@@ -104,6 +104,3 @@ ALTER TABLE t_rbw_candidato
 CREATE SEQUENCE SQ_RBW_VAGA
 START WITH 1 
 INCREMENT BY 1;
-
-
-

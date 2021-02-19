@@ -6,10 +6,10 @@ import br.com.nextstep.beans.Candidato;
 import br.com.nextstep.dao.CandidatoDAO;
 
 /**
- * Esta classe é responsável por conter as regras de negócio de tudo aquilo que diz respeito ao Candidato.
- * É ela que possui os métodos que se comunicam com o Front-End e também com o DAO, para que estes não interajam diretamente.<br>
- * Todos os métodos foram declarado como static para não haver necessidade de instânciar a classe na hora de usar estes métodos.
- * @author Eduardo Vinícius Benigno da Costa
+ * Esta classe ï¿½ responsï¿½vel por conter as regras de negï¿½cio de tudo aquilo que diz respeito ao Candidato.
+ * ï¿½ ela que possui os mï¿½todos que se comunicam com o Front-End e tambï¿½m com o DAO, para que estes nï¿½o interajam diretamente.<br>
+ * Todos os mï¿½todos foram declarado como static para nï¿½o haver necessidade de instï¿½nciar a classe na hora de usar estes mï¿½todos.
+ * @author Eduardo Vinï¿½cius Benigno da Costa
  * @see br.com.nextstep.dao.CandidatoDAO;
  * @see br.com.nextstep.beans.Candidato; 
  */
@@ -17,11 +17,11 @@ import br.com.nextstep.dao.CandidatoDAO;
 public class CandidatoBO {
 
 	/**
-	 * Este método irá verificar se o ID que foi inserido para o Candidato é válido de acordo com o estabelecido 
-	 * no Banco de Dados, e apagará uma Candidato.
-	 * @param id Indica qual linha do Banco de Dados que será pesquisada.
-	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o método.
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * Este mï¿½todo irï¿½ verificar se o ID que foi inserido para o Candidato ï¿½ vï¿½lido de acordo com o estabelecido 
+	 * no Banco de Dados, e apagarï¿½ uma Candidato.
+	 * @param id Indica qual linha do Banco de Dados que serï¿½ pesquisada.
+	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o mï¿½todo.
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @see br.com.nextstep.dao.CandidatoDAO;
 	 * @see br.com.nextstep.beans.Candidato; 
 	 * @throws Exception
@@ -29,7 +29,7 @@ public class CandidatoBO {
 	
 	public static String apagarCandidato(int id) throws Exception{
 		if(id < 1) {
-			return "ID inválido";
+			return "ID invï¿½lido";
 		}
 		
 		CandidatoDAO dao = new CandidatoDAO();
@@ -42,13 +42,13 @@ public class CandidatoBO {
 	}
 	
 	/**
-	 * Este método irá verificar se o ID que foi inserido para o Candidato é válido de acordo com o estabelecido 
-	 * no Banco de Dados, e pesquisará uma Candidato.
-	 * @param id Indica qual linha do Banco de Dados que será pesquisada.
+	 * Este mï¿½todo irï¿½ verificar se o ID que foi inserido para o Candidato ï¿½ vï¿½lido de acordo com o estabelecido 
+	 * no Banco de Dados, e pesquisarï¿½ uma Candidato.
+	 * @param id Indica qual linha do Banco de Dados que serï¿½ pesquisada.
 	 * @return Retorna um Candidato totalmente preenchido.
 	 * @see br.com.nextstep.dao.CandidatoDAO;
  	 * @see br.com.nextstep.beans.Candidato;
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
 	
@@ -66,14 +66,14 @@ public class CandidatoBO {
 	}
 	
 	/**
-	 * Este método irá verificar se o email e senha que foram inseridos para o Candidato são válidos de acordo com o estabelecido 
-	 * no Banco de Dados, e pesquisará uma Candidato.
-	 * @param email Indica qual linha do Banco de Dados que será pesquisada.
+	 * Este mï¿½todo irï¿½ verificar se o email e senha que foram inseridos para o Candidato sï¿½o vï¿½lidos de acordo com o estabelecido 
+	 * no Banco de Dados, e pesquisarï¿½ uma Candidato.
+	 * @param email Indica qual linha do Banco de Dados que serï¿½ pesquisada.
 	 * @param senha Indica a senha do Candidato.
 	 * @return Retorna um Candidato totalmente preenchido.
 	 * @see br.com.nextstep.dao.CandidatoDAO;
  	 * @see br.com.nextstep.beans.Candidato;
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
 
@@ -82,22 +82,20 @@ public class CandidatoBO {
 		if(email == null) {
 			return new Candidato();
 		}
-		
 		CandidatoDAO dao = new CandidatoDAO();
 		Candidato candidato = dao.getByLogin(email,senha);
 		
 		dao.fechar();
-		
 		return candidato;
 	}
 	
 	/**
-	 * Este método irá verificar se o ID que foi inserido para o Candidato é válido de acordo com o estabelecido 
-	 * no Banco de Dados, e pesquisará uma lista de Candidatos.
+	 * Este mï¿½todo irï¿½ verificar se o ID que foi inserido para o Candidato ï¿½ vï¿½lido de acordo com o estabelecido 
+	 * no Banco de Dados, e pesquisarï¿½ uma lista de Candidatos.
 	 * @return Retorna uma lista de Candidatos totalmente preenchidos.
 	 * @see br.com.nextstep.dao.CandidatoDAO;
  	 * @see br.com.nextstep.beans.Candidato;
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
 
@@ -115,20 +113,20 @@ public class CandidatoBO {
 	}
 	
 	/**
-	 * Este método irá verificar se o ID que foi inserido para o Candidato é válido de acordo com o estabelecido 
-	 * no Banco de Dados, e atualizará um Candidato.
-	 * @param id Indica qual linha do Banco de Dados que será pesquisada.
-	 * @param candidato Carrega todas as informações do Candiato a ser atualizado.
-	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o método.
+	 * Este mï¿½todo irï¿½ verificar se o ID que foi inserido para o Candidato ï¿½ vï¿½lido de acordo com o estabelecido 
+	 * no Banco de Dados, e atualizarï¿½ um Candidato.
+	 * @param id Indica qual linha do Banco de Dados que serï¿½ pesquisada.
+	 * @param candidato Carrega todas as informaï¿½ï¿½es do Candiato a ser atualizado.
+	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o mï¿½todo.
 	 * @see br.com.nextstep.dao.CandidatoDAO;
  	 * @see br.com.nextstep.beans.Candidato;
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
 	
 	public static String atualizaEmail(int id, Candidato candidato) throws Exception{
 		if(id < 1) {
-			return "ID inválido";
+			return "ID invï¿½lido";
 		}
 		
 		if(candidato.getEmail() == null) {
@@ -145,23 +143,23 @@ public class CandidatoBO {
 	}
 	
 	/**
-	 * Este método irá verificar se os dados que foram inseridos para o Candidato são válidos de acordo com o estabelecido 
-	 * no Banco de Dados, e irá inserir um Candidato, onde:<br>
+	 * Este mï¿½todo irï¿½ verificar se os dados que foram inseridos para o Candidato sï¿½o vï¿½lidos de acordo com o estabelecido 
+	 * no Banco de Dados, e irï¿½ inserir um Candidato, onde:<br>
 	 * Cpf < 11<br>
-	 * @param candidato Este objeto deve conter todas as informações do Candidato.
-	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o método.
+	 * @param candidato Este objeto deve conter todas as informaï¿½ï¿½es do Candidato.
+	 * @return Retorna uma String dizendo qual o que ocorreu ao executar o mï¿½todo.
 	 * @see br.com.nextstep.dao.CandidatoDAO;
  	 * @see br.com.nextstep.beans.Candidato;
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
-	
+//	
 	public static String add(Candidato candidato) throws Exception {
 
 		if(candidato.getCpf().length() < 11) {
-			return "CPF inválido";
+			return "CPF invï¿½lido";
 		} else if (candidato.getVaga() == null) {
-			return "Uma vaga é necessária para adicionar o candidato";
+			return "Uma vaga ï¿½ necessï¿½ria para adicionar o candidato";
 		}
 				
 		CandidatoDAO dao = new CandidatoDAO();

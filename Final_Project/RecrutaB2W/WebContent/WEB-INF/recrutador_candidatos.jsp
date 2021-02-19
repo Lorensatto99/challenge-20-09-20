@@ -30,8 +30,8 @@
 						<td>${id.count}</td>
 						<td>${cand.nome}</td>
 						<td>${cand.email}</td>
-						<td>${cand.dataNascimento}</td>
-						<td>${cand.vaga}</td>
+						<td><f:formatDate value="${cand.dataNascimento}" pattern="dd/MM/yyyy"/></td>
+						<td>${cand.vaga.nomeVaga}</td>
 						<td>${cand.cpf}</td>
 						<td>${cand.recrutador}</td>
 						<td><c:choose>

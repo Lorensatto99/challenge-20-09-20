@@ -15,8 +15,8 @@ import br.com.nextstep.conexao.ConectaBanco;
 import br.com.nextstep.util.PadraoDAO;
 
 /**
- * Nesta classe, por meio do Design Pattern Data Access Object, manipularemos a tabela T_RBW_CANDIDATO, a classe principal deste sistema, a qual possui CD_CANDIDATO como chave primária.
- * Todos os candidatos serão armazenados nesta tabela, e ela também faz referência com todas as demais tabelas dos sistema
+ * Nesta classe, por meio do Design Pattern Data Access Object, manipularemos a tabela T_RBW_CANDIDATO, a classe principal deste sistema, a qual possui CD_CANDIDATO como chave primï¿½ria.
+ * Todos os candidatos serï¿½o armazenados nesta tabela, e ela tambï¿½m faz referï¿½ncia com todas as demais tabelas dos sistema
  * por meio de chave estrangeira.<br>
  * Chaves Estrangeiras:<br>
  * NR_VAGA<br>
@@ -24,14 +24,14 @@ import br.com.nextstep.util.PadraoDAO;
  * CD_CHATBOT<br>
  * CD_RECRUTADOR<br>
  * 
- * Estas FKs foram criadas passíveis de receber valores nulos, tendo em vista que elas somente serão manipuladas no momento
+ * Estas FKs foram criadas passï¿½veis de receber valores nulos, tendo em vista que elas somente serï¿½o manipuladas no momento
  * em que o Candidato realizar o respectivo teste.
  * 
- * Criamos três atributos para armazenar os componentes do JDBC.
+ * Criamos trï¿½s atributos para armazenar os componentes do JDBC.
  * 
  * @author Rogerio Pizzo dos Santos
  * @author William Butler Poletto
- * @author Eduardo Vinícius Benigno da Costa
+ * @author Eduardo Vinï¿½cius Benigno da Costa
  * @version 1.0
  * @see br.com.nextstep.beans.Candidato
  * @see br.com.nextstep.bo.CandidatoBO
@@ -45,8 +45,8 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	private ResultSet rs;
 	
 	/**
-	 * O método construtor atua estabelecendo uma conexão com o  Banco de Dados
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * O mï¿½todo construtor atua estabelecendo uma conexï¿½o com o  Banco de Dados
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @throws Exception
 	 */
 	
@@ -55,8 +55,8 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Este método efetua o desligamento de conexão com o Banco de Dados.
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * Este mï¿½todo efetua o desligamento de conexï¿½o com o Banco de Dados.
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @see br.com.nextstep.util.PadraoDAO
 	 * @since 1.0
 	 * @throws Exception
@@ -68,15 +68,15 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Método para inserir uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * A coluna CD_CANDIDATO é a chave primária e está sendo inserida através de uma SEQUENCE.<br>
-	 * As colunas CD_AUDIO_VIDEO, CD_CHATBOT, CD_RECRUTADOR e NR_VAGA são opcionais pois só serão preenchidas quando o Candidato realizar estas atividade.<br>
-	 * A quantidade máxima de caracteres das colunas VARCHAR são:<br>
+	 * Mï¿½todo para inserir uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * A coluna CD_CANDIDATO ï¿½ a chave primï¿½ria e estï¿½ sendo inserida atravï¿½s de uma SEQUENCE.<br>
+	 * As colunas CD_AUDIO_VIDEO, CD_CHATBOT, CD_RECRUTADOR e NR_VAGA sï¿½o opcionais pois sï¿½ serï¿½o preenchidas quando o Candidato realizar estas atividade.<br>
+	 * A quantidade mï¿½xima de caracteres das colunas VARCHAR sï¿½o:<br>
 	 * NR_CPF = 11<br>
 	 * NM_CANDIDATO = 100<br>
 	 * DS_EMAIL = 100<br>
 	 * NM_SENHA = 16<br>
-	 * @param objeto Este objeto deve conter todas as informações do Candidato.
+	 * @param objeto Este objeto deve conter todas as informaï¿½ï¿½es do Candidato.
 	 * @return Retorna a quantidade de linhas modificadas
 	 * @author Rogerio Pizzo dos Santos
 	 * @see br.com.nextstep.util.PadraoDAO
@@ -88,23 +88,23 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	
 	@Override
 	public int add(Candidato objeto) throws Exception{
-
-		stmt = con.prepareStatement("INSERT INTO T_RBW_CANDIDATO (CD_CANDIDATO, NR_CPF, DT_NASCIMENTO, NR_MEDALHA, NM_CANDIDATO, NM_SENHA, DS_EMAIL) VALUES(SQ_RBW_CANDIDATO.NEXTVAL, ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?)");
-		
-		stmt.setString(1, objeto.getCpf());
-		stmt.setString(2, objeto.getDataNascimento());
-		stmt.setInt(3, 0);
-		stmt.setString(4, objeto.getNome());
-		stmt.setString(5, objeto.getSenha());
-		stmt.setString(6, objeto.getEmail());
-		
-		return stmt.executeUpdate();
+//		stmt = con.prepareStatement("INSERT INTO T_RBW_CANDIDATO (CD_CANDIDATO, NR_CPF, DT_NASCIMENTO, NR_MEDALHA, NM_CANDIDATO, NM_SENHA, DS_EMAIL) VALUES(SQ_RBW_CANDIDATO.NEXTVAL, ?, TO_DATE(?,'YYYY-MM-DD'), ?, ?, ?, ?)");
+//		
+//		stmt.setString(1, objeto.getCpf());
+//		stmt.setString(2, objeto.getDataNascimento());
+//		stmt.setInt(3, 0);
+//		stmt.setString(4, objeto.getNome());
+//		stmt.setString(5, objeto.getSenha());
+//		stmt.setString(6, objeto.getEmail());
+//		
+//		return stmt.executeUpdate();
+		return 0 ;
 	}
 	
 	/**
-	 * Método para deletar uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * A linha que será deletada deve ser indicada pelo seu ID. 
-	 * @param id ID da linha do Banco de Dados que será removida.
+	 * Mï¿½todo para deletar uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * A linha que serï¿½ deletada deve ser indicada pelo seu ID. 
+	 * @param id ID da linha do Banco de Dados que serï¿½ removida.
 	 * @return Retorna a quantidade de linhas modificadas
 	 * @author William Butler Poletto
 	 * @see br.com.nextstep.util.PadraoDAO
@@ -125,9 +125,9 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Método para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * Este método tem como função alterar o email de um Candidato já existente.
-	 * @param id ID da linha do Banco de Dados que será alterada.
+	 * Mï¿½todo para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * Este mï¿½todo tem como funï¿½ï¿½o alterar o email de um Candidato jï¿½ existente.
+	 * @param id ID da linha do Banco de Dados que serï¿½ alterada.
 	 * @param objeto Este objeto deve conter o novo email do Candidato.
 	 * @return Retorna a quantidade de linhas modificadas
 	 * @author Rogerio Pizzo dos Santos
@@ -146,9 +146,9 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Método para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * Este método tem como função inserir no Candidato um código de Chatbot, o qual é feito após o Candidato realizar esta atividade.
-	 * @param cpf Indica qual linha do Banco de Dados que será alterada.
+	 * Mï¿½todo para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * Este mï¿½todo tem como funï¿½ï¿½o inserir no Candidato um cï¿½digo de Chatbot, o qual ï¿½ feito apï¿½s o Candidato realizar esta atividade.
+	 * @param cpf Indica qual linha do Banco de Dados que serï¿½ alterada.
 	 * @param objeto Este objeto deve conter os dados do Chatbot realizado pelo Candidato.
 	 * @return Retorna a quantidade de linhas modificadas
 	 * @author William Butler Poletto
@@ -167,10 +167,10 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Método para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * Este método tem como função inserir no Candidato um código de AudioVideo, o qual é feito após o Candidato realizar esta atividade.
-	 * @param cpf Indica qual linha do Banco de Dados que será alterada.
-	 * @param objeto Este objeto deve conter a URL do áudio ou vídeo realizado pelo Candidato.
+	 * Mï¿½todo para atualizar uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * Este mï¿½todo tem como funï¿½ï¿½o inserir no Candidato um cï¿½digo de AudioVideo, o qual ï¿½ feito apï¿½s o Candidato realizar esta atividade.
+	 * @param cpf Indica qual linha do Banco de Dados que serï¿½ alterada.
+	 * @param objeto Este objeto deve conter a URL do ï¿½udio ou vï¿½deo realizado pelo Candidato.
 	 * @return Retorna a quantidade de linhas modificadas
 	 * @author William Butler Poletto
 	 * @see br.com.nextstep.beans.Candidato
@@ -188,11 +188,11 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 	
 	/**
-	 * Método para buscar uma linha na tabela T_RBW_CANDIDATO.<br>
-	 * Este método tem como função buscar e mostrar um Candidato já existente.
-	 * @param id ID da linha do Banco de Dados que será pesquisada.
-	 * @return Retorna um objeto Candidato preenchido com suas respectivas informações.
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * Mï¿½todo para buscar uma linha na tabela T_RBW_CANDIDATO.<br>
+	 * Este mï¿½todo tem como funï¿½ï¿½o buscar e mostrar um Candidato jï¿½ existente.
+	 * @param id ID da linha do Banco de Dados que serï¿½ pesquisada.
+	 * @return Retorna um objeto Candidato preenchido com suas respectivas informaï¿½ï¿½es.
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @see br.com.nextstep.util.PadraoDAO
 	 * @see br.com.nextstep.beans.Candidato
 	 * @see br.com.nextstep.bo.CandidatoBO
@@ -220,7 +220,7 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 					rs.getInt("CD_CANDIDATO"),
 					rs.getString("NM_CANDIDATO"),
 					rs.getString("DS_EMAIL"),
-					rs.getString("DT_NASCIMENTO"),
+					rs.getDate("DT_NASCIMENTO"),
 					new Vaga(
 							rs.getInt("NR_VAGA"),
 							rs.getString("NM_VAGA"),
@@ -271,10 +271,10 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 		return new Candidato();
 	}
 /**
- * Método para buscar um Candidato na tabela T_RBW_CANDIDATO, com base no seu Email e Senha
+ * Mï¿½todo para buscar um Candidato na tabela T_RBW_CANDIDATO, com base no seu Email e Senha
  * @param email Email do Candidato
  * @param senha Senha do Candidato
- * @return Retorna verdadeiro caso este login exista, e falso se não existir
+ * @return Retorna verdadeiro caso este login exista, e falso se nï¿½o existir
  * @throws Exception
  */
 	
@@ -289,17 +289,15 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 					"' AND T_RBW_CANDIDATO.NM_SENHA='" + senha +"'"
 				);
 		
-
 	
 		rs = stmt.executeQuery();
 		
 		if(rs.next()) {
 			return new Candidato(
-					
 					rs.getInt("CD_CANDIDATO"),
 					rs.getString("NM_CANDIDATO"),
 					rs.getString("DS_EMAIL"),
-					rs.getString("DT_NASCIMENTO"),
+					rs.getDate("DT_NASCIMENTO"),
 					new Vaga(
 							rs.getInt("NR_VAGA"),
 							rs.getString("NM_VAGA"),
@@ -318,10 +316,10 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 	}
 
 	/**
-	 * Método para buscar todas as linhas na tabela T_RBW_CANDIDATO.<br>
-	 * Este método tem como função buscar e mostrar todos os candidatos existentes. 
-	 * @return Retorna uma lista de objetos Candidato com todas as informações presentes no Banco de Dados.
-	 * @author Eduardo Vinícius Benigno da Costa
+	 * Mï¿½todo para buscar todas as linhas na tabela T_RBW_CANDIDATO.<br>
+	 * Este mï¿½todo tem como funï¿½ï¿½o buscar e mostrar todos os candidatos existentes. 
+	 * @return Retorna uma lista de objetos Candidato com todas as informaï¿½ï¿½es presentes no Banco de Dados.
+	 * @author Eduardo Vinï¿½cius Benigno da Costa
 	 * @see br.com.nextstep.util.PadraoDAO
 	 * @see br.com.nextstep.beans.Candidato
 	 * @see br.com.nextstep.bo.CandidatoBO
@@ -353,7 +351,7 @@ public class CandidatoDAO implements PadraoDAO<Candidato> {
 					rs.getInt("CD_CANDIDATO"),
 					rs.getString("NM_CANDIDATO"),
 					rs.getString("DS_EMAIL"),
-					rs.getString("DT_NASCIMENTO"),
+					rs.getDate("DT_NASCIMENTO"),
 					new Vaga(
 							rs.getInt("NR_VAGA"),
 							rs.getString("NM_VAGA"),

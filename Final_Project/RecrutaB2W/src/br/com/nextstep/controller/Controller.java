@@ -101,7 +101,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		} else if (request.getParameter("pag").equals("recrutador_candidatos.jsp")) {
 			mostraCandidatos(request, response, "recrutador_candidatos.jsp");
 		} else if (request.getParameter("pag").equals("candidato_chatbot.jsp")) {
-			// parÃ¢metro pergunta foi mandado vazio aqui para que o nó inicial de bem-vindo seja mostrado ao clicar na aba Chatbot, caso contrário ele não seria mostrado
+			// parÃ¢metro pergunta foi mandado vazio aqui para que o nï¿½ inicial de bem-vindo seja mostrado ao clicar na aba Chatbot, caso contrï¿½rio ele nï¿½o seria mostrado
 			response.sendRedirect("chat?resposta=");	
 		} else if (request.getParameter("pag").equals("recrutador_chatbot.jsp")) {
 			mostraChatbot(request, response);	
@@ -165,10 +165,10 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 
 		String ultimaPergunta = (String) ctx.getAttribute("ultimaPergunta");
 		
-		// caso tenha um input do usuário, ou seja, quando ele responder
-		// o nó de bem-vindo
+		// caso tenha um input do usuï¿½rio, ou seja, quando ele responder
+		// o nï¿½ de bem-vindo
 		if (!resposta.equals("")) {	
-			// adiciona no dicionário a Ãºltima pergunta feita, junto
+			// adiciona no dicionï¿½rio a Ãºltima pergunta feita, junto
 			// com a sua resposta
 			chatbot.addRespostas(ultimaPergunta, resposta);
 		}
@@ -179,7 +179,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		
 		ctx.setAttribute("chatbot", chatbot);
 		
-		if (novaPergunta.equals("Onde você mora atualmente, e quanto tempo levaria para chegar ao escritório da B2W?")) {
+		if (novaPergunta.equals("Onde vocï¿½ mora atualmente, e quanto tempo levaria para chegar ao escritï¿½rio da B2W?")) {
 			int linhasAlteradas = ChatbotBO.novoChatbot(chatbot);
 			
 			return novaPergunta + " Agora a conversa serao salva no banco de dados." + "Linhas alteradas: " + linhasAlteradas;
@@ -193,10 +193,10 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 
 	private void mostraChatbot(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		// o objeto chatbot já está na memória, na verdade
-		// não precisaria buscar no banco de dados, mas
-		// estou forçando a busca pois vamos precisar buscar ele
-		// no momento de criar a sessão. Isto é temporário
+		// o objeto chatbot jï¿½ estï¿½ na memï¿½ria, na verdade
+		// nï¿½o precisaria buscar no banco de dados, mas
+		// estou forï¿½ando a busca pois vamos precisar buscar ele
+		// no momento de criar a sessï¿½o. Isto ï¿½ temporï¿½rio
 		
 		Chatbot chatbotDoBancoDeDados = ChatbotBO.pesquisarChatbot(3);
 		
@@ -211,7 +211,8 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 		String email = request.getParameter("cpmail");
 		String senha = request.getParameter("cppass");
 		
-		 if (email.substring(0,3).equals("rc_")) {
+		
+	    if (email.substring(0,3).equals("rc_")) {
 			 
 			 if(RecrutadorBO.mostraLogin(email, senha).getId() != 0) {
 				 
@@ -224,14 +225,11 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 			 }
 			 
 			 else {
-				 request.setAttribute("msgErro", "Login inválido!");
+				 request.setAttribute("msgErro", "Login invï¿½lido!");
 				 request.getRequestDispatcher("./login.jsp").forward(request, response);
 			 }
 	        
-
-		 } 
-		 
-		 else {
+	    }else{
 			 if(CandidatoBO.mostraLogin(email, senha).getId() != 0) {
 				 
 				HttpSession session = request.getSession();
@@ -244,7 +242,7 @@ protected void service(HttpServletRequest request, HttpServletResponse response)
 			 }
 			 
 			 else {
-				 request.setAttribute("msgErro", "Login inválido!");
+				 request.setAttribute("msgErro", "Login invï¿½lido!");
 				 request.getRequestDispatcher("./login.jsp").forward(request, response);
 			 }
 		 }
