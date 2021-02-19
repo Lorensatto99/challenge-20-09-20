@@ -3,7 +3,7 @@ package br.com.nextstep.beans;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class Candidato implements Serializable{
 
@@ -31,6 +31,15 @@ public class Candidato implements Serializable{
 		this.nome = nome;
 		this.email = email;
 		this.senha = senha;
+		if (cpf.length() == 11) {
+			StringBuilder buffer = new StringBuilder(cpf);
+			char dot = '.';
+			char iffen= '-';
+			buffer.insert(3, dot);
+			buffer.insert(7, dot);
+			buffer.insert(11, iffen);
+			cpf = buffer.toString();
+		}
 		this.cpf = cpf;
 		this.recrutador = recrutador;
 	}	
@@ -44,6 +53,15 @@ public class Candidato implements Serializable{
 		this.dataNascimento = dataNascimento;
 		this.vaga = vaga;
 		this.numeroMedalha = numeroMedalha;
+		if (cpf.length() == 11) {
+			StringBuilder buffer = new StringBuilder(cpf);
+			char dot = '.';
+			char iffen= '-';
+			buffer.insert(3, dot);
+			buffer.insert(7, dot);
+			buffer.insert(11, iffen);
+			cpf = buffer.toString();
+		}
 		this.cpf = cpf;
 		this.recrutador = recrutador;
 	}
@@ -59,6 +77,15 @@ public class Candidato implements Serializable{
 		this.dataNascimento = dataNascimento;
 		this.vaga = vaga;
 		this.numeroMedalha = numeroMedalha;
+		if (cpf.length() == 11) {
+			StringBuilder buffer = new StringBuilder(cpf);
+			char dot = '.';
+			char iffen= '-';
+			buffer.insert(3, dot);
+			buffer.insert(7, dot);
+			buffer.insert(11, iffen);
+			cpf = buffer.toString();
+		}
 		this.cpf = cpf;
 		this.recrutador = recrutador;
 		this.chatbot = chatbot;
@@ -131,6 +158,15 @@ public class Candidato implements Serializable{
 	}
 
 	public void setCpf(String cpf) {
+		if (cpf.length() == 11) {
+			StringBuilder buffer = new StringBuilder(cpf);
+			char dot = '.';
+			char iffen= '-';
+			buffer.insert(3, dot);
+			buffer.insert(7, dot);
+			buffer.insert(11, iffen);
+			cpf = buffer.toString();
+		}
 		this.cpf = cpf;
 	}
 

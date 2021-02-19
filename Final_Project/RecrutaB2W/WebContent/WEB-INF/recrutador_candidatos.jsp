@@ -32,8 +32,8 @@
 						<td>${cand.email}</td>
 						<td><f:formatDate value="${cand.dataNascimento}" pattern="dd/MM/yyyy"/></td>
 						<td>${cand.vaga.nomeVaga}</td>
-						<td>${cand.cpf}</td>
-						<td>${cand.recrutador}</td>
+						<td id="teste" >${cand.cpf }</td>
+						<td>${cand.recrutador.nome}</td>
 						<td><c:choose>
 								<c:when test="${cand.audioVideo eq null}">
 									<img alt="" class="link-disable" src="./img/videoCamera.png">
